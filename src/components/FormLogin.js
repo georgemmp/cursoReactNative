@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, TextInput, Button} from 'react-native';
+import {View, Text, TextInput, Button, TouchableHighlight} from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
 export default props => (
     <View style={{flex: 1, padding: 10}}>
@@ -11,7 +12,9 @@ export default props => (
             <TextInput style={{fontSize: 20, height: 45}} placeholder="Email" />
             <TextInput style={{fontSize: 20, height: 45}} placeholder="Senha" />
             <View style={{justifyContent: "center", alignItems: "center"}}>
-                <Text style={{fontSize: 15}}>Ainda não tem cadastro? Cadastra-se</Text>
+                <TouchableHighlight onPress={() => Actions.formCadastro()}>
+                    <Text style={{fontSize: 15}}>Ainda não tem cadastro? Cadastra-se</Text>
+                </TouchableHighlight>
             </View>
         </View>
 

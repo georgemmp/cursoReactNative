@@ -1,12 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, StatusBar } from 'react-native';
-import FormLogin from './src/components/FormLogin';
-import FormCadastro from './src/components/FormCadastro'
+import Route from './src/route/Route';
 
 export default class App extends React.Component {
   render() {
     return (
-      <FormCadastro />
+      <Route />
     );
   }
 }
