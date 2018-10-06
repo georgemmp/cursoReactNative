@@ -12,7 +12,7 @@ export default props => (
             <TextInput style={{fontSize: 20, height: 45}} placeholder="Email" />
             <TextInput style={{fontSize: 20, height: 45}} placeholder="Senha" />
             <View style={{justifyContent: "center", alignItems: "center"}}>
-                <TouchableHighlight onPress={() => Actions.formCadastro()}>
+                <TouchableHighlight onPress={() => Actions.formCadastro()} underlayColor={'transparent'}>
                     <Text style={{fontSize: 15}}>Ainda não tem cadastro? Cadastra-se</Text>
                 </TouchableHighlight>
             </View>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, StatusBar } from 'react-native';
+import {Provider} from 'react-redux';
+
 import Route from './src/route/Route';
 
 export default class App extends React.Component {
