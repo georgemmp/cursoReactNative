@@ -1,16 +1,17 @@
 import React from 'react';
 import { View, Text, TextInput, Button, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 
-export default props => (
+const formLogin = props => (
     <View style={{ flex: 1, padding: 10 }}>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text style={{ fontSize: 25 }}>Whatsapp Clone</Text>
         </View>
 
         <View style={{ flex: 2 }}>
-            <TextInput style={{ fontSize: 20, height: 45 }} placeholder="Email" />
-            <TextInput style={{ fontSize: 20, height: 45 }} placeholder="Senha" />
+            <TextInput value={props.email} style={{ fontSize: 20, height: 45 }} placeholder="Email" />
+            <TextInput value={props.senha} style={{ fontSize: 20, height: 45 }} placeholder="Senha" />
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <TouchableHighlight onPress={() => Actions.formCadastro()} underlayColor={'transparent'}>
                     <Text style={{ fontSize: 15 }}>Ainda não tem cadastro? Cadastra-se</Text>
@@ -23,3 +24,12 @@ export default props => (
         </View>
     </View>
 );
+
+const mapStateToProps = state => (
+    {
+        email: state.AutenticaoReducer.email,
+        senha: state.AutenticaoReducer.senha
+    }
+);
+
+export default connect(mapStateToProps, null)(formLogin);
