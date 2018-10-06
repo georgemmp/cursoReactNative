@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Scene, Stack} from 'react-native-router-flux';
+import { Router, Scene, Stack } from 'react-native-router-flux';
 
 import FormLogin from '../components/FormLogin';
 import FormCadastro from '../components/FormCadastro';
