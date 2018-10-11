@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, TextInput, Button } from 'react-native';
+import { connect } from 'react-redux';
 
-export default props => (
+const formCadastro = props => (
     <View style={{ flex: 1, padding: 10 }}>
         <View style={{ flex: 2, justifyContent: 'center' }}>
-            <TextInput placeholder="Nome" style={{ fontSize: 20, height: 45 }} />
-            <TextInput placeholder="Email" style={{ fontSize: 20, height: 45 }} />
-            <TextInput placeholder="Senha" style={{ fontSize: 20, height: 45 }} />
+            <TextInput value={props.nome} placeholder="Nome" style={{ fontSize: 20, height: 45 }} />
+            <TextInput value={props.email} placeholder="Email" style={{ fontSize: 20, height: 45 }} />
+            <TextInput value={props.senha} placeholder="Senha" style={{ fontSize: 20, height: 45 }} />
         </View>
 
         <View style={{ flex: 1 }}>
@@ -14,3 +15,14 @@ export default props => (
         </View>
     </View>
 );
+
+const mapStateToProps = state => (
+    {
+        nome: state.AutenticaoReducer.nome,
+        email: state.AutenticaoReducer.email,
+        senha: state.AutenticaoReducer.senha
+    }
+);
+
+
+export default connect(mapStateToProps, null)(formCadastro);
