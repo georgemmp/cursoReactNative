@@ -4,4 +4,14 @@ const INITIAL_STATE = {
     senha: ''
 };
 
-export default (state = INITIAL_STATE, action) => state;
+export default (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        case 'modifica_email':
+            return { ...state, email: action.payload };
+        case 'modifica_senha':
+            return { ...state, senha: action.payload };
+        default:
+            break;
+    }
+    return state;
+};
