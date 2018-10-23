@@ -8,4 +8,9 @@ const modificaSenha = (texto) => ({
     payload: texto
 });
 
-export { modificaEmail, modificaSenha };
+const modificaNome = (texto) => ({
+    type: 'modifica_nome',
+    payload: texto
+});
+
+export { modificaEmail, modificaSenha, modificaNome };
