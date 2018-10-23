@@ -17,6 +17,7 @@ value={props.email} placeholder="Email" style={{ fontSize: 20, height: 45 }}
             <TextInput
 value={props.senha} placeholder="Senha" style={{ fontSize: 20, height: 45 }} 
                 onChangeText={texto => props.modificaSenha(texto)} 
+                secureTextEntry
             />
         </View>
 
