@@ -6,16 +6,19 @@ import { modificaEmail, modificaSenha, modificaNome } from '../actions/Autentica
 const formCadastro = props => (
     <ImageBackground style={{ flex: 1 }} source={require('../img/bg.png')}>
         <View style={{ flex: 1, padding: 10 }}>
-            <View style={{ flex: 2, justifyContent: 'center' }}>
+            <View style={{ flex: 2, justifyContent: 'center', color: '#fff' }}>
                 <TextInput
+                placeholderTextColor='#fff'
     value={props.nome} placeholder="Nome" style={{ fontSize: 20, height: 45 }} 
                     onChangeText={texto => props.modificaNome(texto)}
                 />
                 <TextInput
+                placeholderTextColor='#fff'
     value={props.email} placeholder="Email" style={{ fontSize: 20, height: 45 }} 
                     onChangeText={texto => props.modificaEmail(texto)}
                 />
                 <TextInput
+                placeholderTextColor='#fff'
     value={props.senha} placeholder="Senha" style={{ fontSize: 20, height: 45 }} 
                     onChangeText={texto => props.modificaSenha(texto)} 
                     secureTextEntry
