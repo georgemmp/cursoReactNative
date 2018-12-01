@@ -13,4 +13,8 @@ const modificaNome = (texto) => ({
     payload: texto
 });
 
-export { modificaEmail, modificaSenha, modificaNome };
+const cadastrarUsuario = ({ nome, email, senha }) => ({
+    type: 'teste'
+});
+
+export { modificaEmail, modificaSenha, modificaNome, cadastrarUsuario };
