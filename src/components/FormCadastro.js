@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, Button, ImageBackground } from 'react-native';
+import { View, TextInput, Button, ImageBackground, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { 
     modificaEmail, 
@@ -46,6 +46,8 @@ class FormCadastro extends Component {
                             onChangeText={texto => this.props.modificaSenha(texto)} 
                             secureTextEntry
                         />
+
+                        <Text style={{ color: 'red', fontSize: 18 }}>{this.props.erroCadastro}</Text>
                     </View>
 
                     <View style={{ flex: 1 }}>
@@ -65,7 +67,8 @@ const mapStateToProps = state => (
     {
         nome: state.AutenticaoReducer.nome,
         email: state.AutenticaoReducer.email,
-        senha: state.AutenticaoReducer.senha
+        senha: state.AutenticaoReducer.senha,
+        erroCadastro: state.AutenticaoReducer.erroCadastro
     }
 );
 

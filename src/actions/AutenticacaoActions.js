@@ -16,10 +16,24 @@ const modificaNome = (texto) => ({
 });
 
 const cadastrarUsuario = ({ nome, email, senha }) => {
-    firebase.auth().createUserWithEmailAndPassword(email, senha);
-    return {
-        type: 'teste'
+    return dispatch => {
+        firebase.auth().createUserWithEmailAndPassword(email, senha)
+            .then(user => cadastraUsuarioSucesso(dispatch))
+            .catch(error => cadastraUsuarioErro(error, dispatch));
     };
+};
+
+const cadastraUsuarioSucesso = (dispatch) => {
+    dispatch({
+        type: 'success'
+    });
+};
+
+const cadastraUsuarioErro = (error, dispatch) => {
+    dispatch({
+        type: 'cadastroUsuarioErro',
+        payload: error.message
+    });
 };
 
 export { modificaEmail, modificaSenha, modificaNome, cadastrarUsuario };
