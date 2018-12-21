@@ -45,4 +45,14 @@ const cadastraUsuarioErro = (error, dispatch) => {
     });
 };
 
-export { modificaEmail, modificaSenha, modificaNome, cadastrarUsuario };
+const autenticarUsuario = (email, senha) => ({
+    type: 'type'
+});
+
+export { 
+    modificaEmail, 
+    modificaSenha, 
+    modificaNome, 
+    cadastrarUsuario,
+    autenticarUsuario
+};
