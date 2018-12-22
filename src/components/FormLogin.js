@@ -7,9 +7,7 @@ import { modificaEmail, modificaSenha, autenticarUsuario } from '../actions/Aute
 class FormLogin extends Component {
     autenticaUsuario() {
         const { email, senha } = this.props;
-
         this.props.autenticarUsuario({ email, senha });
-        console.log(email, senha);
     }
 
     render() {
@@ -36,6 +34,9 @@ class FormLogin extends Component {
                             onChangeText={texto => this.props.modificaSenha(texto)} 
                             secureTextEntry 
                         />
+                        <Text style={{ color: 'red', fontSize: 18 }}>
+                            {this.props.erroLogin}
+                        </Text>
                         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                             <TouchableHighlight 
                                 onPress={() => Actions.formCadastro()} 
@@ -58,8 +59,16 @@ class FormLogin extends Component {
 const mapStateToProps = state => (
     {
         email: state.AutenticaoReducer.email,
-        senha: state.AutenticaoReducer.senha
+        senha: state.AutenticaoReducer.senha,
+        erroLogin: state.AutenticaoReducer.erroLogin
     }
 );
 
-export default connect(mapStateToProps, { modificaEmail, modificaSenha, autenticarUsuario })(FormLogin);
+export default connect(
+    mapStateToProps, 
+    { 
+        modificaEmail, 
+        modificaSenha, 
+        autenticarUsuario 
+    }
+)(FormLogin);

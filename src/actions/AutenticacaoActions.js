@@ -17,8 +17,7 @@ const modificaNome = (texto) => ({
     payload: texto
 });
 
-const cadastrarUsuario = ({ nome, email, senha }) => {
-    return dispatch => {
+const cadastrarUsuario = ({ nome, email, senha }) => dispatch => {
         firebase.auth().createUserWithEmailAndPassword(email, senha)
             .then(user => {
                 const emailB64 = b64.encode(email);
@@ -28,7 +27,6 @@ const cadastrarUsuario = ({ nome, email, senha }) => {
             })
             .catch(error => cadastraUsuarioErro(error, dispatch));
     };
-};
 
 const cadastraUsuarioSucesso = (dispatch) => {
     dispatch({
@@ -45,9 +43,24 @@ const cadastraUsuarioErro = (error, dispatch) => {
     });
 };
 
-const autenticarUsuario = (email, senha) => ({
-    type: 'type'
-});
+const autenticarUsuario = ({ email, senha }) => dispatch => {
+        firebase.auth().signInWithEmailAndPassword(email, senha)
+            .then(value => loginUsuarioSucesso(dispatch))
+            .catch(error => loginUsuarioErro(error, dispatch));
+    };
+
+const loginUsuarioSucesso = (dispatch) => {
+    dispatch({
+        type: 'login_usuario_sucesso'
+    });
+};
+
+const loginUsuarioErro = (error, dispatch) => {
+    dispatch({
+        type: 'login_usuario_erro',
+        payload: error.message
+    });
+};
 
 export { 
     modificaEmail, 
