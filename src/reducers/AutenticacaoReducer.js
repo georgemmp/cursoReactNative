@@ -1,3 +1,12 @@
+import {
+    MODIFICA_EMAIL,
+    MODIFICA_SENHA,
+    MODIFICA_NOME,
+    CADASTRO_USUARIO_ERRO,
+    CADASTRO_USUARIO_SUCESSO,
+    LOGIN_USUARIO_ERRO
+} from '../actions/Types';
+
 const INITIAL_STATE = {
     nome: '',
     email: '',
@@ -8,17 +17,17 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'modifica_nome':
+        case MODIFICA_NOME:
             return { ...state, nome: action.payload };
-        case 'modifica_email':
+        case MODIFICA_EMAIL:
             return { ...state, email: action.payload };
-        case 'modifica_senha':
+        case MODIFICA_SENHA:
             return { ...state, senha: action.payload };
-        case 'cadastroUsuarioErro':
+        case CADASTRO_USUARIO_ERRO:
             return { ...state, erroCadastro: action.payload };
-        case 'cadastroUsuarioSucesso':
+        case CADASTRO_USUARIO_SUCESSO:
             return { ...state, nome: '', senha: '' };
-        case 'login_usuario_erro':
+        case LOGIN_USUARIO_ERRO:
             return { ...state, erroLogin: action.payload };
         default:
             break;

@@ -1,19 +1,28 @@
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import b64 from 'base-64';
+import {
+    MODIFICA_EMAIL,
+    MODIFICA_SENHA,
+    MODIFICA_NOME,
+    CADASTRO_USUARIO_ERRO,
+    CADASTRO_USUARIO_SUCESSO,
+    LOGIN_USUARIO_ERRO,
+    LOGIN_USUARIO_SUCESSO
+} from './Types';
 
 const modificaEmail = (texto) => ({
-    type: 'modifica_email',
+    type: MODIFICA_EMAIL,
     payload: texto
 });
 
 const modificaSenha = (texto) => ({
-    type: 'modifica_senha',
+    type: MODIFICA_SENHA,
     payload: texto
 });
 
 const modificaNome = (texto) => ({
-    type: 'modifica_nome',
+    type: MODIFICA_NOME,
     payload: texto
 });
 
@@ -30,7 +39,7 @@ const cadastrarUsuario = ({ nome, email, senha }) => dispatch => {
 
 const cadastraUsuarioSucesso = (dispatch) => {
     dispatch({
-        type: 'cadastroUsuarioSucesso'
+        type: CADASTRO_USUARIO_SUCESSO
     });
 
     Actions.formBoasVindas();
@@ -38,7 +47,7 @@ const cadastraUsuarioSucesso = (dispatch) => {
 
 const cadastraUsuarioErro = (error, dispatch) => {
     dispatch({
-        type: 'cadastroUsuarioErro',
+        type: CADASTRO_USUARIO_ERRO,
         payload: error.message
     });
 };
@@ -51,14 +60,14 @@ const autenticarUsuario = ({ email, senha }) => dispatch => {
 
 const loginUsuarioSucesso = (dispatch) => {
     dispatch({
-        type: 'login_usuario_sucesso'
+        type: LOGIN_USUARIO_SUCESSO
     });
     Actions.formPrincipal();
 };
 
 const loginUsuarioErro = (error, dispatch) => {
     dispatch({
-        type: 'login_usuario_erro',
+        type: LOGIN_USUARIO_ERRO,
         payload: error.message
     });
 };
