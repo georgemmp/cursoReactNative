@@ -1,37 +1,34 @@
 import * as React from 'react';
-import { View, StyleSheet, Dimensions, StatusBar } from 'react-native';
-import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
+import { StyleSheet, Dimensions } from 'react-native';
+import { TabView, SceneMap } from 'react-native-tab-view';
 
-const FirstRoute = () => (
-  <View style={[styles.scene, { backgroundColor: '#ff4081' }]}>
-    <StatusBar hidden />
-  </View>
-);
-const SecondRoute = () => (
-  <View style={[styles.scene, { backgroundColor: '#673ab7' }]} />
-);
+import TabBarMenu from './TabBarMenu';
+import Conversas from './Conversas';
+import Contatos from './Contatos';
 
 export default class Principal extends React.Component {
   state = {
     index: 0,
     routes: [
-      { key: 'first', title: 'First' },
-      { key: 'second', title: 'Second' },
+      { key: 'first', title: 'Conversas' },
+      { key: 'second', title: 'Contatos' },
     ],
   };
 
+  _renderTabBar = props => <TabBarMenu {...props} />
+  
   render() {
     return (
       <TabView
         navigationState={this.state}
         renderScene={SceneMap({
-          first: FirstRoute,
-          second: SecondRoute,
+          first: Conversas,
+          second: Contatos,
         })}
         onIndexChange={index => this.setState({ index })}
+        renderTabBar={this._renderTabBar}
         initialLayout={{ width: Dimensions.get('window').width }}
       />
-      
     );
   }
 }
