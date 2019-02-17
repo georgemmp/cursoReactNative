@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text } from 'react-native';
 
 export default props => (
     <View>
-        <StatusBar hidden />
         <Text>Conversas</Text>
     </View>
 );
