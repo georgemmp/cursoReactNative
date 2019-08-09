@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 
 import TabBarMenu from './TabBarMenu';
@@ -14,8 +14,6 @@ export default class Principal extends React.Component {
       { key: 'second', title: 'Contatos' },
     ],
   };
-
-  _renderTabBar = props => <TabBarMenu {...props} />
   
   render() {
     return (
@@ -25,16 +23,11 @@ export default class Principal extends React.Component {
           first: Conversas,
           second: Contatos,
         })}
+        renderTabBar={props => <TabBarMenu {...props} />}
         onIndexChange={index => this.setState({ index })}
-        renderTabBar={this._renderTabBar}
-        initialLayout={{ width: Dimensions.get('window').width }}
+        initialLayout={{ width: Dimensions.get('window').width, 
+                          height: Dimensions.get('window').height }}
       />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  scene: {
-    flex: 1,
-  },
-});

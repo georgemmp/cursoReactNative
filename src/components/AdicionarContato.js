@@ -1,11 +1,14 @@
 import React from 'react';
 import { View, TextInput, Button } from 'react-native';
+import { connect } from 'react-redux';
+import { modificaAdicionaContatoEmail } from '../actions/AppActions';
 
-export default props => (
+const adicionarContato = props => (
     <View style={{ flex: 1, justifyContent: 'center', padding: 20 }}>
         <View style={{ flex: 1, justifyContent: 'center' }}>
             <TextInput 
-                placeholder='E-mail' style={{ fontSize: 20, height: 45 }} onChange={() => false} 
+                placeholder='E-mail' style={{ fontSize: 20, height: 45 }} onChangeText={(text) => props.modificaAdicionaContatoEmail(text)} 
+                value={props.adicionar_contato_email}
             />
         </View>
 
@@ -14,3 +17,11 @@ export default props => (
         </View>
     </View>
 );
+
+const mapStateToProps = state => (
+    {
+        adicionar_contato_email: state.AppReducer.adicionar_contato_email
+    }
+);
+
+export default connect(mapStateToProps, { modificaAdicionaContatoEmail })(adicionarContato);
