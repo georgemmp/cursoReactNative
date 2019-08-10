@@ -7,3 +7,11 @@ export const modificaAdicionaContatoEmail = text => {
     };
 };
 
+export const adicionaContato = email => {
+    console.log(email);
+
+    return {
+        type: ''
+    };
+};
+

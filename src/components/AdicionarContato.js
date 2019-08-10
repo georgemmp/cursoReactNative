@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TextInput, Button } from 'react-native';
 import { connect } from 'react-redux';
-import { modificaAdicionaContatoEmail } from '../actions/AppActions';
+import { modificaAdicionaContatoEmail, adicionaContato } from '../actions/AppActions';
 
 const adicionarContato = props => (
     <View style={{ flex: 1, justifyContent: 'center', padding: 20 }}>
@@ -13,7 +13,7 @@ const adicionarContato = props => (
         </View>
 
         <View style={{ flex: 1 }}>
-            <Button title='Adicionar' color='#115E54' onPress={() => false} />
+            <Button title='Adicionar' color='#115E54' onPress={() => props.adicionaContato(props.adicionar_contato_email)} />
         </View>
     </View>
 );
@@ -24,4 +24,4 @@ const mapStateToProps = state => (
     }
 );
 
-export default connect(mapStateToProps, { modificaAdicionaContatoEmail })(adicionarContato);
+export default connect(mapStateToProps, { modificaAdicionaContatoEmail, adicionaContato })(adicionarContato);
