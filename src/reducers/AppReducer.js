@@ -1,7 +1,11 @@
-import { MODICA_ADICIONA_CONTATO_EMAIL } from '../actions/Types';
+import { 
+    MODICA_ADICIONA_CONTATO_EMAIL,
+    ADICIONA_CONTATO_ERRO
+ } from '../actions/Types';
 
 const INITIAL_STATE = {
-    adicionar_contato_email: ''
+    adicionar_contato_email: '',
+    cadastro_resultado_txt_erro: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -9,6 +13,8 @@ export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case MODICA_ADICIONA_CONTATO_EMAIL:
             return { ...state, adicionar_contato_email: action.payload };
+        case ADICIONA_CONTATO_ERRO:
+            return { ...state, cadastro_resultado_txt_erro: action.payload };
         default:
             return state;
     }
