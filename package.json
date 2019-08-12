@@ -12,6 +12,7 @@
     "base-64": "^0.1.0",
     "expo": "^34.0.1",
     "firebase": "^5.5.8",
+    "lodash": "^4.17.15",
     "react": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
     "react-native-router-flux": "^4.0.5",
